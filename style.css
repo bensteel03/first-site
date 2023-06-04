@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------
-	bensteel.uk
+	Ben Steel v2
 	About: A shiny new Blocs website.
 	Author: Ben Steel
 	Version: 1.0
@@ -52,6 +52,128 @@ a:hover{text-decoration: none; cursor:pointer;}
 
 .bloc-lg{
 	padding:100px 20px;
+}
+
+/* = Full Screen Blocs 
+-------------------------------------------------------------- */
+
+.bloc-fill-screen{
+	min-height:100vh;
+	display: flex;
+	flex-direction: column;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.bloc-fill-screen > .container{
+	align-self: flex-middle;
+	flex-grow: 1;
+	display: flex;
+	flex-wrap: wrap;
+}
+.bloc-fill-screen > .container > .row{
+	flex-grow: 1;
+	align-self: center;
+	width:100%;
+}
+.bloc-fill-screen .fill-bloc-top-edge, .bloc-fill-screen .fill-bloc-bottom-edge{
+	flex-grow: 0;
+}
+.bloc-fill-screen .fill-bloc-top-edge{
+	align-self: flex-start;
+}
+.bloc-fill-screen .fill-bloc-bottom-edge{
+	align-self: flex-end;
+}
+
+
+/* Edge Dividers */
+
+.bloc-shape-divider{
+	position: absolute;
+	width:100%;
+	text-align:center;
+	left:0;
+	right:0;
+	z-index: 0;
+	display: flex;
+	pointer-events: none;
+}
+.svg-divider{
+	width:100%;
+	height:100px;
+	fill:#000000;
+}
+.bloc-divider-top{
+	top:-1px;
+	align-items: flex-start;
+}
+.bloc-divider-bottom{
+	bottom:-1px;
+	align-items: flex-end;
+}
+
+
+/* Flip Edge Divider */
+
+.bloc-divider-flip-x svg{
+	transform:scale(-1,1);
+}
+.bloc-divider-flip-y svg{
+	transform:scale(1,-1);
+}
+.bloc-divider-flip-x.bloc-divider-flip-y svg{
+	transform:scale(-1,-1);
+}
+
+
+/* Dark theme */
+
+.d-bloc{
+	color:rgba(255,255,255,.7);
+}
+.d-bloc button:hover{
+	color:rgba(255,255,255,.9);
+}
+.d-bloc .icon-round,.d-bloc .icon-square,.d-bloc .icon-rounded,.d-bloc .icon-semi-rounded-a,.d-bloc .icon-semi-rounded-b{
+	border-color:rgba(255,255,255,.9);
+}
+.d-bloc .divider-h span{
+	border-color:rgba(255,255,255,.2);
+}
+.d-bloc .a-btn,.d-bloc .navbar a, .d-bloc a .icon-sm, .d-bloc a .icon-md, .d-bloc a .icon-lg, .d-bloc a .icon-xl, .d-bloc h1 a, .d-bloc h2 a, .d-bloc h3 a, .d-bloc h4 a, .d-bloc h5 a, .d-bloc h6 a, .d-bloc p a{
+	color:rgba(255,255,255,.6);
+}
+.d-bloc .a-btn:hover,.d-bloc .navbar a:hover,.d-bloc a:hover .icon-sm, .d-bloc a:hover .icon-md, .d-bloc a:hover .icon-lg, .d-bloc a:hover .icon-xl, .d-bloc h1 a:hover, .d-bloc h2 a:hover, .d-bloc h3 a:hover, .d-bloc h4 a:hover, .d-bloc h5 a:hover, .d-bloc h6 a:hover, .d-bloc p a:hover{
+	color:rgba(255,255,255,1);
+}
+.d-bloc .navbar-toggle .icon-bar{
+	background:rgba(255,255,255,1);
+}
+.d-bloc .btn-wire,.d-bloc .btn-wire:hover{
+	color:rgba(255,255,255,1);
+	border-color:rgba(255,255,255,1);
+}
+.d-bloc .card{
+	color:rgba(0,0,0,.5);
+}
+.d-bloc .card button:hover{
+	color:rgba(0,0,0,.7);
+}
+.d-bloc .card icon{
+	border-color:rgba(0,0,0,.7);
+}
+.d-bloc .card .divider-h span{
+	border-color:rgba(0,0,0,.1);
+}
+.d-bloc .card .a-btn{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .a-btn:hover{
+	color:rgba(0,0,0,1);
+}
+.d-bloc .card .btn-wire, .d-bloc .card .btn-wire:hover{
+	color:rgba(0,0,0,.7);
+	border-color:rgba(0,0,0,.3);
 }
 
 
@@ -162,11 +284,27 @@ button{
 	outline: none!important;
 }
 
-.icon-spacer{
-	margin-right:5px;
+
+
+/* Image Frame */
+.img-frame,.img-frame-md,.img-frame-lg,.img-frame-rd,.img-frame-rd-md,.img-frame-rd-lg{
+	background:#FFF;
+	border:1px solid rgba(0,0,0,0.1);
+	box-shadow:0 2px 2px rgba(0,0,0,0.05);
+	padding:4px;
 }
-
-
+.img-frame{
+	border-radius:3px;
+}
+.img-frame-md,.img-frame-lg{
+	border-radius:6px;
+}
+.img-frame-md,.img-frame-rd-md{
+	padding:8px;
+}
+.img-frame-lg,.img-frame-rd-lg{
+	padding:14px;
+}
 
 
 
@@ -242,28 +380,52 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .container{
 	max-width:1140px;
 }
-.h3-style{
-	font-size:40px;
-	line-height:0px;
-}
 .btn-style{
 	width:100%;
-	padding-top:0px;
-	padding-bottom:0px;
 }
-.btn-padding-top{
-	padding-top:0px;
-	padding-bottom:0px;
-	width:100%;
+.h1-style{
+	font-size:45px;
+	line-height:90px;
 }
-.btn-instagram-style{
-	width:92.26%;
-	padding-top:0px;
-	padding-bottom:0px;
+.p-style{
+	font-size:30px;
+}
+.bloc-divider-b-fill{
+	fill:#FFFFFF;
+}
+.bloc-divider-b-bloc-2-fill{
+	fill:#54B4E6;
+}
+.bloc-divider-t-fill{
+	fill:#FFFFFF;
+}
+.h6-style{
+	font-size:18px;
+}
+.link-style{
+	font-weight:bold;
+}
+.link-download-my-cv-style{
+	font-weight:bold;
 }
 .img-style{
 	border-radius:0px 0px 0px 0px;
-	width:194px;
+	width:337px;
+}
+.container-div-min-height{
+	min-height:1633px;
+}
+.h1-contact--style{
+	font-size:38px;
+}
+.h2-style{
+	font-size:38px;
+}
+.p-bloc-0-style{
+	font-size:18px;
+}
+.link-07484-181675-style{
+	font-weight:bold;
 }
 
 /* = Colour
@@ -272,34 +434,62 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 /* Swatch Variables */
 :root{
 	
-	--swatch-var-4756:#54B4E6;
+	--swatch-var-6172:rgba(255,255,255,1.0);
 	
-	--swatch-var-4673:#3B3B3B;
+	--swatch-var-4495:#3B3B3B;
+	
+	--swatch-var-7672:#54B4E6;
 	
 }
 
 
+/* Background colour styles */
+
+.bgc-4495{
+	background-color:var(--swatch-var-4495);
+}
+.bgc-7672{
+	background-color:var(--swatch-var-7672);
+}
 
 /* Text colour styles */
 
-.tc-4756{
-	color:var(--swatch-var-4756)!important;
+.tc-7672{
+	color:var(--swatch-var-7672)!important;
 }
-.tc-4673{
-	color:var(--swatch-var-4673)!important;
+.tc-6172{
+	color:var(--swatch-var-6172)!important;
 }
 
 /* Button colour styles */
 
-.btn-c-4756{
-	background:var(--swatch-var-4756);
+.btn-c-6172{
+	background:var(--swatch-var-6172);
 	color:rgba(0,0,0,.5)!important;
 }
-.btn-c-4756:hover{
-	background:#2181B3!important;
+.btn-c-6172:hover{
+	background:#CCCCCC!important;
 	color:rgba(0,0,0,.5)!important;
 }
 
+/* Link colour styles */
+
+.ltc-6172{
+	color:var(--swatch-var-6172)!important;
+}
+.ltc-6172:hover{
+	color:#CCCCCC!important;
+}
+
+/* Bloc image backgrounds */
+
+.bg-home-20img{
+	background-image:url("img/home%20img.png");
+	background-image: -webkit-image-set(url("img/home%20img.webp") 1x,
+url("img/home%20img.webp") 2x);background-image: image-set(url("img/home%20img.png") 1x,
+url("img/home%20img.png") 2x,url("img/home%20img.webp") 1x,
+url("img/home%20img.webp") 2x);
+}
 
 
 
